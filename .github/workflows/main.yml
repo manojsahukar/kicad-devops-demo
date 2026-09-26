@@ -11,12 +11,16 @@ on:
       - '**.sch'
       - '**.kicad_pcb'
       - '.github/workflows/main.yml'
+
+permissions:
+  contents: read
+
 jobs:
   example:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: majnun1337/kicad-exports@v2.3.2
+    - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+    - uses: manojsahukar/kicad-exports@fe47c19ec3cda35c4c62d4fc4f1e50a63838e5d5 # v2.3.2
       with:
       # Required - kibot config file
         config: docs.kibot.yaml
@@ -29,7 +33,7 @@ jobs:
       # optional - verbose output info
         verbose: 1
     - name: upload results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
       with:
         name: docs
         path: docs
